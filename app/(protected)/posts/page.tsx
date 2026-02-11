@@ -11,11 +11,11 @@ const PostsPage = async ({searchParams}:{searchParams?:{ query?: string, page?: 
   return (
     <RoleGate allowedRole="ADMIN">
       <div className="lg:flex lg:flex-row gap-4 pb-4 justify-between">
-        <Heading title="Informasi Sekolah." description="Daftar informasi terbaru terkait kegiatan di SD Muhammadiyah Kaliwates Jember."/>
+        <Heading title="Artikel Kami." description="Daftar artikel terbaru terkait kegiatan di Langit Biru Banyuwangi."/>
         <Separator orientation="horizontal" className="lg:hidden my-4"/>
         <div className="flex flex-row gap-2">
-          <SearchInput label="Cari Informasi"/>
-          <CreateButton label="informasi" href="/posts/create"/>
+          <SearchInput label="Cari Artikel"/>
+          <CreateButton label="artikel" href="/posts/create"/>
         </div>
       </div>
       <PostsTable query={query} currentPage={currentPage}/>

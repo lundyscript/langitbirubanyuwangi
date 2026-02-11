@@ -61,7 +61,7 @@ export const NewPostForm = () => {
 
   return (
     <>
-      <Heading title="Informasi Sekolah Baru." description="Isikan data informasi sekolah baru."/>
+      <Heading title="Artikel Baru." description="Isikan data artikel baru."/>
       <Separator orientation="horizontal" className="my-4"/>
       <div className="lg:w-3/5 mx-auto justify-center">
         <Form {...form}>
@@ -96,8 +96,9 @@ export const NewPostForm = () => {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="Berita">Berita</SelectItem>
-                    <SelectItem value="Pengumuman">Pengumuman</SelectItem>
+                    <SelectItem value="Paket Wisata">Paket Wisata</SelectItem>
+                    <SelectItem value="Galeri">Galeri</SelectItem>
+                    <SelectItem value="Artikel">Artikel</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -105,7 +106,7 @@ export const NewPostForm = () => {
             )}/>
             <FormField control={form.control} name="title" render={({ field }) => (
               <FormItem>
-                <FormLabel>Judul Informasi</FormLabel>
+                <FormLabel>Judul</FormLabel>
                 <FormControl><Input {...field} disabled={isPending}/></FormControl>
                 <FormMessage/>
               </FormItem>
@@ -181,7 +182,7 @@ export const UpdatePostForm: React.FC<UpdatePostFormProps> = ({initialData}) => 
   };
   return (
     <>
-      <Heading title="Ubah Informasi Sekolah." description="Isikan data informasi sekolah dengan benar."/>
+      <Heading title="Ubah Artikel." description="Isikan data artikel dengan benar."/>
       <Separator orientation="horizontal" className="my-4"/>
       <div className="lg:w-3/5 mx-auto justify-center">
         <Form {...form}>
@@ -216,8 +217,8 @@ export const UpdatePostForm: React.FC<UpdatePostFormProps> = ({initialData}) => 
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="Berita">Berita</SelectItem>
-                    <SelectItem value="Pengumuman">Pengumuman</SelectItem>
+                    <SelectItem value="Paket Wisata">Paket Wisata</SelectItem>
+                    <SelectItem value="Galeri">Galeri</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -225,7 +226,7 @@ export const UpdatePostForm: React.FC<UpdatePostFormProps> = ({initialData}) => 
             )}/>
             <FormField control={form.control} name="title" render={({ field }) => (
               <FormItem>
-                <FormLabel>Judul Informasi</FormLabel>
+                <FormLabel>Judul</FormLabel>
                 <FormControl><Input {...field} disabled={isPending}/></FormControl>
                 <FormMessage/>
               </FormItem>

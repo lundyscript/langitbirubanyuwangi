@@ -2,14 +2,14 @@
 import { format } from "date-fns"
 import { ActionButton } from "@/components/button"
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { getAllPosts, getPostsAllData, getPostsData, getPostsPages } from "@/data/posts"
+import { getAllPosts, getAllPostsForAdmin, getPostsAllData, getPostsAllDataForAdmin, getPostsData, getPostsDataForAdmin, getPostsPages, getPostsPagesForAdmin } from "@/data/posts"
 import Pagination from "@/components/utils/pagination"
 
 export const PostsTable = async ({query, currentPage}:{query: string, currentPage: number}) => {
-  const posts = await getAllPosts(query, currentPage)
-  const totalPages = await getPostsPages(query)
-  const data = await getPostsData(query, currentPage)
-  const totalData = await getPostsAllData()
+  const posts = await getAllPostsForAdmin(query, currentPage)
+  const totalPages = await getPostsPagesForAdmin(query)
+  const data = await getPostsDataForAdmin(query, currentPage)
+  const totalData = await getPostsAllDataForAdmin()
   return (
     <>
       {!posts?.length ? 

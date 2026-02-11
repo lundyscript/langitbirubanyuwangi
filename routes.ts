@@ -5,16 +5,10 @@
  */
 export const publicRoutes = [
   "/",
-  "/profile",
-  "/employees",
-  "/news",
-  "/ensiklopedia",
-  "/ensiklopedia/read",
-  "/ppdb",
-  "/ppdb/register",
-  "/ppdb/success",
-  "/ppdb/error",
-  "/auth/new-verification",
+  "/aboutus",
+  "/galleries",
+  "/articles",
+  "/tourpackage",
 ]
 
 /**
