@@ -10,10 +10,6 @@ const config = {
 	],
   prefix: "",
   theme: {
-    fontFamily: {
-      inconsolata: ["inconsolata", "mono"],
-      RobotoCondensed : ["RobotoCondensed"]
-    },
     container: {
       center: true,
       padding: "2rem",

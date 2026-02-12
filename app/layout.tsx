@@ -8,7 +8,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Langit Biru Banyuwangi - Paket Wisata Banyuwangi Murah & Lengkap",
-  description: "Created by lundyscript.site",
+  description: "Craved by lundyscript.site",
 };
 
 export default async function RootLayout({children}: Readonly<{children: React.ReactNode}>) {

@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "inconsolata";
-  src: url("/font/Inconsolata-VariableFont_wdth,wght.ttf");
-  font-family: "RobotoCondensed";
-  src: url("/font/RobotoCondensed-VariableFont_wght.ttf");
-}
 
 @layer base {
   /* Firefox */

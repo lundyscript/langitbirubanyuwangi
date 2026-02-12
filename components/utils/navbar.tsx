@@ -23,7 +23,7 @@ export default function NavbarComponent() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
   return (
-    <header className={cn("flex h-16 w-full shrink-0 items-center px-4 md:px-6 fixed z-50 backdrop-blur-sm font-RobotoCondensed text-[15px] tracking-wider transition-all duration-300 ",
+    <header className={cn("flex h-16 w-full shrink-0 items-center px-4 md:px-6 fixed z-50 backdrop-blur-sm text-[15px] tracking-tight transition-all duration-300 ",
       isScrolled
           ? 'bg-[#164E8A] shadow-md text-white'
           : 'bg-[#EBEB15] text-slate-900'
@@ -37,10 +37,10 @@ export default function NavbarComponent() {
             alt="Logo"
           />
         </Link>
-        <Link href="/aboutus" className={cn("font-medium p-2 rounded-md",isScrolled ? 'hover:bg-[#EBEB15] hover:text-slate-900' : 'hover:bg-[#164E8A] hover:text-white')}>TENTANG KAMI</Link>
-        <Link href="/tourpackage" className={cn("font-medium p-2 rounded-md",isScrolled ? 'hover:bg-[#EBEB15] hover:text-slate-900' : 'hover:bg-[#164E8A] hover:text-white')}>PAKET WISATA</Link>
-        <Link href="/galleries" className={cn("font-medium p-2 rounded-md",isScrolled ? 'hover:bg-[#EBEB15] hover:text-slate-900' : 'hover:bg-[#164E8A] hover:text-white')}>GALERI</Link>
-        <Link href="/articles" className={cn("font-medium p-2 rounded-md",isScrolled ? 'hover:bg-[#EBEB15] hover:text-slate-900' : 'hover:bg-[#164E8A] hover:text-white')}>ARTIKEL</Link>
+        <Link href="/aboutus" className={cn("font-medium p-2 rounded-md",isScrolled ? 'hover:bg-[#EBEB15] hover:text-slate-900' : 'hover:bg-[#164E8A] hover:text-[#EBEB15]')}>TENTANG KAMI</Link>
+        <Link href="/tourpackage" className={cn("font-medium p-2 rounded-md",isScrolled ? 'hover:bg-[#EBEB15] hover:text-slate-900' : 'hover:bg-[#164E8A] hover:text-[#EBEB15]')}>PAKET WISATA</Link>
+        <Link href="/galleries" className={cn("font-medium p-2 rounded-md",isScrolled ? 'hover:bg-[#EBEB15] hover:text-slate-900' : 'hover:bg-[#164E8A] hover:text-[#EBEB15]')}>GALERI</Link>
+        <Link href="/articles" className={cn("font-medium p-2 rounded-md",isScrolled ? 'hover:bg-[#EBEB15] hover:text-slate-900' : 'hover:bg-[#164E8A] hover:text-[#EBEB15]')}>ARTIKEL</Link>
       </div>
       <Sheet>
         <div className="lg:hidden w-full flex gap-4 justify-between">

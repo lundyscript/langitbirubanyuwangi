@@ -10,6 +10,7 @@ import { FaInstagram, FaWhatsapp } from "react-icons/fa"
 import { BentoForHomePage, GalleryForHomePage } from "@/components/card"
 import { HeroSection } from "@/components/magicui/hero-section"
 import WhyChooseUs from "@/components/magicui/why-choose-us"
+import { HyperText } from "@/components/ui/hyper-text"
 
 
 const HomePage = async () => {
@@ -133,7 +134,7 @@ const HomePage = async () => {
             </div>
           </section>
           <section>
-            <div className="w-full h-10 bg-secondary flex items-center justify-center text-center text-sm">© 2026 - All Right Reserved - Langit Biru Banyuwangi: Teman Setia Liburanmu</div>
+            <div className="w-full h-10 bg-secondary flex items-center justify-center text-center text-sm">© 2026 - All Right Reserved - Langit Biru Banyuwangi: Teman Setia Liburanmu - Carved by&nbsp;<a href="https://www.lundyscript.site/"><HyperText as={"p"} startOnView={true} className="text-[13px]">lundyscript</HyperText></a></div>
           </section>
         </>
       }
