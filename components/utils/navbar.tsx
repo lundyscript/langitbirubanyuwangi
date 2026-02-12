@@ -57,7 +57,7 @@ export default function NavbarComponent() {
               </Link>
             </div>
           </SheetTrigger>
-          <Link href="/ppdb"><ShinyButton text="PAKET WISATA"/></Link>
+          <Link href="/tourpackage"><ShinyButton text="PAKET WISATA"/></Link>
         </div>
         <SheetContent side="left">
           <div className="flex flex-col h-full justify-between">

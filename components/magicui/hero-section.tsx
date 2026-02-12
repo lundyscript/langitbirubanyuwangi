@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { ArrowRight, Plane, MapPin, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { NumberTicker } from '../ui/number-ticker'
+import Link from 'next/link'
 
 interface Slide {
   id: number
@@ -91,7 +92,7 @@ export function HeroSection() {
   const slide = slides[currentSlide]
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black py-20 lg:py-28">
       {/* Background Images Container - Sliding Effect */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Slides Container with Horizontal Scroll Animation */}
@@ -163,27 +164,19 @@ export function HeroSection() {
               opacity: 0,
             }}
           >
-            <Button
-              size="lg"
-              className="bg-[#EBEB15] hover:bg-[#164E8A] text-[#164E8A] hover:text-[#EBEB15] font-semibold px-8 sm:px-10"
-            >
+            <Link href="https://wa.me/6281321116569" className="group inline-flex h-12 items-center justify-center rounded-md bg-[#EBEB15] text-[#164E8A] hover:bg-[#164E8A] hover:text-[#EBEB15] px-8 text-sm font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" prefetch={false}>
               Plan Your Trip
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white/50 hover:border-white text-white hover:text-white hover:bg-white/10 font-semibold px-8 sm:px-10 bg-transparent backdrop-blur-2xl"
-            >
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+            <Link href="/tourpackage" className="group inline-flex h-12 items-center justify-center rounded-md border-[1px] border-white/50 hover:border-white text-white hover:text-white hover:bg-background/30 px-8 text-sm font-semibold sm:px-10 backdrop-blur-sm bg-background/20" prefetch={false}>
               <MapPin className="mr-2 h-5 w-5" />
               Browse Destinations
-            </Button>
+            </Link>
           </div>
 
           {/* Stats or Trust Indicators - Animated */}
           <div
-            className="mt-16 pt-12 border-t border-white/30 flex flex-col sm:flex-row gap-8 sm:gap-12 transition-all duration-700"
+            className="mt-14 pt-10 border-t border-white/30 flex flex-col sm:flex-row gap-8 sm:gap-10 transition-all duration-700"
             style={{
               animation: `fadeInUp 0.8s ease-out 0.6s forwards`,
               opacity: 0,
