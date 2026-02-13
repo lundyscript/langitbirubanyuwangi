@@ -18,7 +18,7 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    image: '/hero-1.JPG',
+    image: '/hero1.jpg',
     eyebrow: 'Explore the World',
     title: 'Menjelajahi Keajaiban di Bawah',
     titleHighlight: 'Langit Biru Banyuwangi.',
@@ -27,7 +27,7 @@ const slides: Slide[] = [
   },
   {
     id: 2,
-    image: '/hero-2.JPG',
+    image: '/hero2.jpg',
     eyebrow: 'Adventure Awaits',
     title: 'Liburan Tanpa Beban,',
     titleHighlight: 'Cerita Tanpa Batas.',
@@ -36,7 +36,7 @@ const slides: Slide[] = [
   },
   {
     id: 3,
-    image: '/hero-3.jpg',
+    image: '/hero3.jpg',
     eyebrow: 'Immerse Yourself',
     title: 'Satu Langit,',
     titleHighlight: 'Berjuta Petualangan di Ujung Timur Jawa',
