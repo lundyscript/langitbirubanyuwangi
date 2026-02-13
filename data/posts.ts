@@ -3,12 +3,12 @@ import { db } from "@/lib/db"
 export const getFourPosts = async () => {
   try {
     const posts = await db.posts.findMany({
-      take: 6,
+      take: 2,
       where:{
-        category: "Paket Wisata"
+        title:{ contains: "Opsi A", mode: "insensitive" },
       },
       orderBy: [
-        {createdAt: 'desc'}
+        {createdAt: 'asc'}
       ]
     })
     return posts
@@ -88,7 +88,7 @@ export const getAllTour = async (query: string, currentPage: number) => {
         ]
       },
       orderBy: [
-        {createdAt: 'desc'}
+        {createdAt: 'asc'}
       ]
     })
     return posts

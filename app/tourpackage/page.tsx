@@ -15,6 +15,7 @@ import { format } from 'date-fns'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowDownToLine } from 'lucide-react'
+import { SearchInput } from '@/components/input/search'
 
 const AllTourPackagePage = async ({searchParams}:{searchParams?:{ query?: string, page?: string, read?: string }}) => {
   const query = searchParams?.query || ""
@@ -43,10 +44,11 @@ const AllTourPackagePage = async ({searchParams}:{searchParams?:{ query?: string
               <Heading title="Eksplorasi Seru bersama Langit Biru Banyuwangi!" description="Temukan paket wisata lengkap dan terjangkau yang membawa Anda menjelajahi keindahan alam, budaya, dan petualangan tak terlupakan di Banyuwangi. Mulai dari pantai eksotis hingga pegunungan menawan, kami hadir untuk mewujudkan liburan impian Anda dengan layanan terbaik dan harga bersahabat."/>
               <Separator orientation="horizontal" className="lg:hidden my-4"/>
               <div className="flex flex-row gap-2">
-                <Link href="/paket wisata langit biru.pdf" target="_blank" className="group inline-flex h-10 items-center justify-center rounded-md bg-[#EBEB15] text-[#164E8A] hover:bg-[#164E8A] hover:text-[#EBEB15] px-8 text-sm font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" prefetch={false}>
+                {/* <Link href="/paket wisata langit biru.pdf" target="_blank" className="group inline-flex h-10 items-center justify-center rounded-md bg-[#EBEB15] text-[#164E8A] hover:bg-[#164E8A] hover:text-[#EBEB15] px-8 text-sm font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" prefetch={false}>
                   Dokumen
                   <ArrowDownToLine className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-y-1" />
-                </Link>
+                </Link> */}
+                <SearchInput label="Cari Paket"/>
               </div>
             </div>
             {data === 0 ?

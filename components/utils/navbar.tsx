@@ -1,21 +1,24 @@
 "use client"
 import Link from "next/link"
-import { ChevronRight, Menu } from "lucide-react"
+import { Menu } from "lucide-react"
 import { FaInstagram, FaRegEnvelope, FaWhatsapp } from "react-icons/fa"
 import { Button } from "@/components/ui/button"
-import { DarkLightToggle } from "@/components/button"
 import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet"
 import ShinyButton from "@/components/magicui/shiny-button";
 import Image from "next/image"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { useState, useEffect } from "react"
 import { cn } from '@/lib/utils'
+import { usePathname } from "next/navigation"
 
 export default function NavbarComponent() {
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       // Check if page has scrolled more than 10 pixels
+      // ma, iso akses folderku? bu kuni njaluk tulung cekno nomor serdik mahasiswa ppg, njaluk tulung awakmu cekno nomor serdik ndek kolom F, aku tak ngecek data ndek pddiktine, suwun yo ma, nek wes mari kabari lewat sso ae
       setIsScrolled(window.scrollY > 50)
     }
 
@@ -26,7 +29,7 @@ export default function NavbarComponent() {
     <header className={cn("flex h-16 w-full shrink-0 items-center px-4 md:px-6 fixed z-50 text-[15px] tracking-tight transition-all duration-300 ",
       isScrolled
           ? 'bg-[#164E8A] shadow-md text-white'
-          : ' backdrop-blur-sm bg-background/20 text-white'
+          : isHomePage ? 'backdrop-blur-sm bg-background/20 text-white' : 'bg-[#EBEB15] shadow-md text-[#164E8A]'
     )}>
       <div className="mr-6 hidden lg:flex space-x-6 items-center">
         <Link href="/" className="inline-flex items-center gap-2">

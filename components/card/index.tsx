@@ -1,10 +1,10 @@
 import { getAllGalleries, getAllPosts, getAllTour, getFourPosts, getSixGalleries } from "@/data/posts"
-import { ArticlesGrid, GalleryGrid, TourPackageGrid } from "../magicui/gallery-grid"
+import { ArticlesGrid, GalleryGrid, TourPackageGrid, TwoTourPackage } from "../magicui/gallery-grid"
 
 export const BentoForHomePage = async () => {
     const tourpackage = await getFourPosts()
     return (
-      <TourPackageGrid items={tourpackage.map((tour) => ({
+      <TwoTourPackage items={tourpackage.map((tour) => ({
         id: tour.id,
         src: tour.image ? `${tour.image}` : "/placeholder.svg",
         alt: tour.title,

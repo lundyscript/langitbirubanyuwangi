@@ -5,10 +5,68 @@ import { useState } from 'react';
 import { cn } from "@/lib/utils"
 import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '../ui/alert-dialog';
 import { BodyPreview } from '../utils/body';
+import Link from 'next/link';
+
+export function TwoTourPackage({ items }: { items: Array<{ id: string; src: string; alt: string; title: string; body:string}> }) {
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+
+  return (
+    <div className="mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+        {items.map((item) => (
+          <Link href={`/tourpackage?page=1&query=${item.title.substring(0,14)}`} key={item.id}>
+            <div
+              key={item.id}
+              className="group relative overflow-hidden rounded-xl bg-foreground/5 border border-foreground/10 h-96 cursor-pointer"
+              onMouseEnter={() => setHoveredId(item.id)}
+              onMouseLeave={() => setHoveredId(null)}
+            >
+            {/* Image */}
+            <div className="relative w-full h-full">
+              <Image
+                src={item.src || "/placeholder.svg"}
+                alt={item.alt}
+                fill
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+              />
+            </div>
+
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-[#ebeb15b9] transition-all duration-300" />
+
+            {/* Content Overlay */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 md:p-8">
+              {/* Text Content */}
+              <div
+                className={`place-items-center space-y-2  text-[#164E8A] transition-all duration-300 transform ${
+                  hoveredId === item.id
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-4'
+                }`}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-route-icon lucide-route"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg>
+                <h4 className="text-2xl md:text-5xl leading-tight font-bold mb-2">
+                  {item.title.substring(0, 14)}
+                </h4>
+              </div>
+            </div>
+          {/* Accent Line Animation */}
+          <div
+            className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r from-accent to-accent/50 transition-all duration-500 ${
+              hoveredId === item.id ? 'w-full' : 'w-0'
+            }`}
+          />
+          </div>
+          </Link>
+      ))}
+      </div>
+    </div>
+  );
+}
 
 export function TourPackageGrid({ items }: { items: Array<{ id: string; src: string; alt: string; title: string; body:string}> }) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
-
   return (
     <div className="mb-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
@@ -135,7 +193,6 @@ export function GalleryGrid({ items }: { items: Array<{ id: string; src: string;
     </div>
   );
 }
-
 
 export function ArticlesGrid({ items }: { items: Array<{ id: string; src: string; alt: string; title: string; body: string;}> }) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
