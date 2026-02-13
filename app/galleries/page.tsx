@@ -2,7 +2,7 @@
 import { BentoForGalleryPage } from '@/components/card'
 import { SearchInput } from '@/components/input/search'
 import BlurFade from '@/components/magicui/blur-fade'
-import GridPattern from '@/components/magicui/grid-pattern'
+import AnimatedGridPattern from "@/components/magicui/animated-grid-pattern"
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { BodyPreview } from '@/components/utils/body'
@@ -25,6 +25,16 @@ const AllGalleriesPage = async ({searchParams}:{searchParams?:{ query?: string, 
   return (
     <>
       <NavbarComponent/>
+      <AnimatedGridPattern
+        numSquares={50}
+        maxOpacity={0.1}
+        duration={1}
+        repeatDelay={1}
+        className={cn(
+          "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]",
+          "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12 -z-10",
+        )}
+      />
       {topic == null ? 
         <section className="w-full py-20 lg:py-28">
           <div className="container px-4 md:px-6">
@@ -63,15 +73,6 @@ const AllGalleriesPage = async ({searchParams}:{searchParams?:{ query?: string, 
             </BlurFade>
           </div>
         </div>
-        <GridPattern
-          x={-1}
-          y={-1}
-          strokeDasharray={"4 2"}
-          className={cn(
-            "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
-            "-z-10"
-          )}
-        />
         </section>
       }
     </>

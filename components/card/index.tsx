@@ -1,10 +1,4 @@
-import { cn } from "@/lib/utils"
-import Image from "next/image"
 import { getAllGalleries, getAllPosts, getAllTour, getFourPosts, getSixGalleries } from "@/data/posts"
-import { ArrowRightIcon } from "lucide-react"
-import { Button } from "../ui/button"
-import Link from "next/link"
-import { Badge } from "../ui/badge"
 import { ArticlesGrid, GalleryGrid, TourPackageGrid } from "../magicui/gallery-grid"
 
 export const BentoForHomePage = async () => {
@@ -15,6 +9,7 @@ export const BentoForHomePage = async () => {
         src: tour.image ? `${tour.image}` : "/placeholder.svg",
         alt: tour.title,
         title: tour.title,
+        body: tour.body,
       }))} />
     );
   }
@@ -39,6 +34,7 @@ export const BentoForTourPackagePage = async ({query, currentPage}:{query: strin
         src: tour.image ? `${tour.image}` : "/placeholder.svg",
         alt: tour.title,
         title: tour.title,
+        body: tour.body,
       }))} />
   );
 }

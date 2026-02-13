@@ -3,7 +3,7 @@ import { db } from "@/lib/db"
 export const getFourPosts = async () => {
   try {
     const posts = await db.posts.findMany({
-      take: 4,
+      take: 6,
       where:{
         category: "Paket Wisata"
       },

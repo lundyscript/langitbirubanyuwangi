@@ -1,10 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import { BentoForGalleryPage, BentoForTourPackagePage } from '@/components/card'
-import { SearchInput } from '@/components/input/search'
+import { BentoForTourPackagePage } from '@/components/card'
 import BlurFade from '@/components/magicui/blur-fade'
 import GridPattern from '@/components/magicui/grid-pattern'
+import AnimatedGridPattern from "@/components/magicui/animated-grid-pattern"
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { BodyPreview } from '@/components/utils/body'
 import { Heading } from '@/components/utils/heading'
@@ -15,6 +14,7 @@ import { cn } from '@/lib/utils'
 import { format } from 'date-fns'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ArrowDownToLine } from 'lucide-react'
 
 const AllTourPackagePage = async ({searchParams}:{searchParams?:{ query?: string, page?: string, read?: string }}) => {
   const query = searchParams?.query || ""
@@ -26,12 +26,28 @@ const AllTourPackagePage = async ({searchParams}:{searchParams?:{ query?: string
   return (
     <>
       <NavbarComponent/>
+      <AnimatedGridPattern
+        numSquares={50}
+        maxOpacity={0.1}
+        duration={1}
+        repeatDelay={1}
+        className={cn(
+          "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]",
+          "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12 -z-10",
+        )}
+      />
       {topic == null ? 
         <section className="w-full py-20 lg:py-28">
           <div className="container px-4 md:px-6">
             <div className="lg:flex lg:flex-row gap-4 pb-10 justify-between">
               <Heading title="Eksplorasi Seru bersama Langit Biru Banyuwangi!" description="Temukan paket wisata lengkap dan terjangkau yang membawa Anda menjelajahi keindahan alam, budaya, dan petualangan tak terlupakan di Banyuwangi. Mulai dari pantai eksotis hingga pegunungan menawan, kami hadir untuk mewujudkan liburan impian Anda dengan layanan terbaik dan harga bersahabat."/>
               <Separator orientation="horizontal" className="lg:hidden my-4"/>
+              <div className="flex flex-row gap-2">
+                <Link href="/paket wisata langit biru.pdf" target="_blank" className="group inline-flex h-10 items-center justify-center rounded-md bg-[#EBEB15] text-[#164E8A] hover:bg-[#164E8A] hover:text-[#EBEB15] px-8 text-sm font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" prefetch={false}>
+                  Dokumen
+                  <ArrowDownToLine className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-y-1" />
+                </Link>
+              </div>
             </div>
             {data === 0 ?
               <p className="text-center">Tidak ada data.</p>
@@ -72,6 +88,7 @@ const AllTourPackagePage = async ({searchParams}:{searchParams?:{ query?: string
         />
         </section>
       }
+      
     </>
   )
 }

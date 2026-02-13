@@ -7,11 +7,8 @@ import { LoadingButton } from "@/components/button"
 import { Trash2 } from "lucide-react"
 import { deletePostAction } from "@/actions/posts"
 import { toast } from "sonner"
-import { deleteTeacherAction } from "@/actions/teachers"
-import { deleteSubjectAction } from "@/actions/elearning"
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip"
-import { deletePPDBAction } from "@/actions/ppdb"
 export const DeleteModal = ({data, id, name}: {data: string, id: string, name: string}) => {
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
@@ -29,51 +26,6 @@ export const DeleteModal = ({data, id, name}: {data: string, id: string, name: s
         document.getElementById("closeDialog")?.click()
         document.getElementById("actionButton")?.click()
         router.push("/posts")
-      })
-    }
-    if (data === "teachers") {
-      startTransition(() => {
-        deleteTeacherAction(id).then((message) => {
-          if (message.error) {
-            toast.error("Error!",{description: message.error})
-          }
-          if (message.success) {
-            toast.success("Success!",{description: message.success})
-          }
-        })
-        document.getElementById("closeDialog")?.click()
-        document.getElementById("actionButton")?.click()
-        router.push("/teachers")
-      })
-    }
-    if (data === "subjects") {
-      startTransition(() => {
-        deleteSubjectAction(id).then((message) => {
-          if (message.error) {
-            toast.error("Error!",{description: message.error})
-          }
-          if (message.success) {
-            toast.success("Success!",{description: message.success})
-          }
-        })
-        document.getElementById("closeDialog")?.click()
-        document.getElementById("actionButton")?.click()
-        router.push("/subjects")
-      })
-    }
-    if (data === "registration") {
-      startTransition(() => {
-        deletePPDBAction(id).then((message) => {
-          if (message.error) {
-            toast.error("Error!",{description: message.error})
-          }
-          if (message.success) {
-            toast.success("Success!",{description: message.success})
-          }
-        })
-        document.getElementById("closeDialog")?.click()
-        document.getElementById("actionButton")?.click()
-        router.push("/registration")
       })
     }
   }

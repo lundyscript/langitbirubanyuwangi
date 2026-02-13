@@ -23,18 +23,19 @@ export default function NavbarComponent() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
   return (
-    <header className={cn("flex h-16 w-full shrink-0 items-center px-4 md:px-6 fixed z-50 backdrop-blur-sm text-[15px] tracking-tight transition-all duration-300 ",
+    <header className={cn("flex h-16 w-full shrink-0 items-center px-4 md:px-6 fixed z-50 text-[15px] tracking-tight transition-all duration-300 ",
       isScrolled
           ? 'bg-[#164E8A] shadow-md text-white'
-          : 'bg-[#EBEB15] text-slate-900'
+          : ' backdrop-blur-sm bg-background/20 text-white'
     )}>
       <div className="mr-6 hidden lg:flex space-x-6 items-center">
         <Link href="/" className="inline-flex items-center gap-2">
           <Image
             src="/langit biru banyuwangi.png"
-            width={104}
-            height={104}
+            width={100}
+            height={100}
             alt="Logo"
+            loading="lazy"
           />
         </Link>
         <Link href="/aboutus" className={cn("font-medium p-2 rounded-md",isScrolled ? 'hover:bg-[#EBEB15] hover:text-slate-900' : 'hover:bg-[#164E8A] hover:text-[#EBEB15]')}>TENTANG KAMI</Link>
@@ -65,9 +66,10 @@ export default function NavbarComponent() {
               <div className="inline-flex gap-4">
                 <Image
                   src="/langit biru banyuwangi.png"
-                  width={44}
+                  width={60}
                   height={44}
                   alt="Logo"
+                  loading="lazy"
                 />
                 <Link href="/" className="inline-flex items-center">
                   <div className="font-medium text-base leading-4 tracking-tighter">

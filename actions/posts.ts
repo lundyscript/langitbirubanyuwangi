@@ -1,6 +1,4 @@
 "use server"
-import fs from "fs"
-import { v4 } from "uuid"
 import { db } from "@/lib/db"
 import { del, put } from "@vercel/blob"
 import { PostsSchema } from "@/schemas"
@@ -28,7 +26,7 @@ export const newPostAction = async (formData:FormData) => {
     // await fs.writeFileSync(filePath, buffer)
     // imagePath = `uploads/${rdm}_${image.name}`
     // Vercel Blob
-    const {url} = await put(image.name, image, {access: "public", multipart: true})
+    const {url} = await put(image.name, image, {access: "public", multipart: true, token: process.env.LBB_READ_WRITE_TOKEN})
     imagePath = url
   }
   try {

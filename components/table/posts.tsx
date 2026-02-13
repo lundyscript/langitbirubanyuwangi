@@ -35,7 +35,8 @@ export const PostsTable = async ({query, currentPage}:{query: string, currentPag
                 <TableCell className="text-center">{idx+1}</TableCell>
                 <TableCell className="font-semibold">{post.category}</TableCell>
                 <TableCell>{post.title}</TableCell>
-                <TableCell><div dangerouslySetInnerHTML={{ __html: post.body.substring(0,200) + " ..." }} /></TableCell>
+                <TableCell>...</TableCell>
+                {/* <TableCell><div dangerouslySetInnerHTML={{ __html: post.body.substring(0,200) + " ..." }} /></TableCell> */}
                 <TableCell className="text-center">{format(post.createdAt, "dd/MM/yyyy")}</TableCell>
                 <TableCell className="text-center items-center justify-center">
                   <ActionButton data="posts" id={post.id} name={"Informasi : " + post.title}/>

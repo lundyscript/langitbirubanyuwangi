@@ -4,8 +4,9 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { cn } from "@/lib/utils"
 import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '../ui/alert-dialog';
+import { BodyPreview } from '../utils/body';
 
-export function TourPackageGrid({ items }: { items: Array<{ id: string; src: string; alt: string; title: string; }> }) {
+export function TourPackageGrid({ items }: { items: Array<{ id: string; src: string; alt: string; title: string; body:string}> }) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
@@ -32,7 +33,7 @@ export function TourPackageGrid({ items }: { items: Array<{ id: string; src: str
                 </div>
 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-[#ebeb154f] transition-all duration-300" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-[#ebeb15b9] transition-all duration-300" />
 
                 {/* Content Overlay */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 md:p-8">
@@ -40,14 +41,14 @@ export function TourPackageGrid({ items }: { items: Array<{ id: string; src: str
 
                   {/* Text Content */}
                   <div
-                    className={`text-white place-items-center transition-all duration-300 transform ${
+                    className={`place-items-center space-y-2  text-[#164E8A] transition-all duration-300 transform ${
                       hoveredId === item.id
                       ? 'opacity-100 translate-y-0'
                       : 'opacity-0 translate-y-4'
                     }`}
                     >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-route-icon lucide-route"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg>
-                    <h4 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-route-icon lucide-route"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg>
+                    <h4 className="text-2xl md:text-5xl leading-tight font-bold mb-2">
                       {item.title}
                     </h4>
                   </div>
@@ -61,11 +62,11 @@ export function TourPackageGrid({ items }: { items: Array<{ id: string; src: str
                 />
               </div>
               </AlertDialogTrigger>
-              <AlertDialogContent>
+              <AlertDialogContent className="lg:max-w-screen-lg overflow-y-scroll max-h-screen">
                 <AlertDialogHeader>
                   <AlertDialogTitle>{item.title}</AlertDialogTitle>
                   <AlertDialogDescription>
-                    <p>Detail paket wisata akan ditampilkan di sini.</p>
+                    <BodyPreview body={item?.body ? item.body : "Tidak ada deskripsi."}/>
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
