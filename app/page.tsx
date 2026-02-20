@@ -137,7 +137,7 @@ const HomePage = async () => {
             </div>
           </section>
           <section>
-            <div className="w-full h-10 bg-secondary flex items-center justify-center text-center text-sm">© 2026 - All Right Reserved - Langit Biru Banyuwangi: Teman Setia Liburanmu - Carved by&nbsp;<a href="https://www.lundyscript.site/"><HyperText as={"p"} startOnView={true} className="text-[13px]">lundyscript</HyperText></a></div>
+            <div className="w-full h-10 bg-secondary flex items-center justify-center text-center text-sm">© 2026 - All Right Reserved - Langit Biru Banyuwangi: Teman Setia Liburanmu - Carved by&nbsp;<a href="https://www.lundyscript.site/" target="_blank"><HyperText as={"span"} startOnView={true} className="text-[13px]">lundyscript</HyperText></a></div>
           </section>
         </>
       }
