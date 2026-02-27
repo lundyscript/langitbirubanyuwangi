@@ -69,7 +69,7 @@ export const getAllPosts = async (query: string, currentPage: number) => {
     throw new Error("Failed to fetch data.")
   }
 }
-const TOUR_PER_PAGE = 6
+const TOUR_PER_PAGE = 10
 export const getAllTour = async (query: string, currentPage: number) => {
   const offset = (currentPage-1) * TOUR_PER_PAGE
   try {
