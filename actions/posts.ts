@@ -67,8 +67,8 @@ export const updatePostAction = async (id:string, formData:FormData) => {
     // await fs.writeFileSync(filePath, buffer)
     // imagePath = `uploads/${rdm}_${image.name}`
     // Vercel Blob
-    await del(prevData.image)
-    const {url} = await put(image.name, image, {access: "public", multipart: true})
+    await del(prevData.image, {token: process.env.LBB_READ_WRITE_TOKEN})
+    const {url} = await put(image.name, image, {access: "public", multipart: true, token: process.env.LBB_READ_WRITE_TOKEN})
     imagePath = url
   }
   try { 
@@ -88,7 +88,7 @@ export const deletePostAction = async (id:string) => {
     return { error: "Data not found!" }
   } else {
     // await fs.rmSync(`./public/${prevData.image}`)
-    await del(prevData.image)
+    await del(prevData.image, {token: process.env.LBB_READ_WRITE_TOKEN})
   }
   try { 
     await db.posts.delete({

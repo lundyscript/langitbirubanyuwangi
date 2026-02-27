@@ -9,6 +9,7 @@ export const BentoForHomePage = async () => {
         src: tour.image ? `${tour.image}` : "/placeholder.svg",
         alt: tour.title,
         title: tour.title,
+        category: tour.category,
         body: tour.body,
       }))} />
     );

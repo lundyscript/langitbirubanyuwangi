@@ -3,9 +3,9 @@ import { db } from "@/lib/db"
 export const getFourPosts = async () => {
   try {
     const posts = await db.posts.findMany({
-      take: 2,
+      take: 4,
       where:{
-        title:{ contains: "Opsi A", mode: "insensitive" },
+        category:{ contains:  "Paket Wisata (featured)", mode: "insensitive" },
       },
       orderBy: [
         {createdAt: 'asc'}
@@ -77,7 +77,7 @@ export const getAllTour = async (query: string, currentPage: number) => {
       skip: offset,
       take: TOUR_PER_PAGE,
       where:{
-        category: "Paket Wisata",
+        category:{ contains: "Paket Wisata", mode: "insensitive" },
         OR:[
           {
             title:{ contains: query, mode: "insensitive" },
@@ -184,7 +184,7 @@ export const getTourPages = async (query: string) => {
   try {
     const posts = await db.posts.count({
       where:{
-        category: "Paket Wisata",
+        category:{ contains: "Paket Wisata", mode: "insensitive" },
         OR:[
           {
             title:{ contains: query, mode: "insensitive" },
@@ -286,7 +286,7 @@ export const getTourData = async (query: string, currentPage: number) => {
       skip: offset,
       take: TOUR_PER_PAGE,
       where:{
-        category: "Paket Wisata",
+        category:{ contains: "Paket Wisata", mode: "insensitive" },
         OR:[
           {
             category:{ contains: query, mode: "insensitive" },
@@ -361,7 +361,7 @@ export const getTourAllData = async () => {
   try {
     const totalData = await db.posts.count({
       where:{
-        category: "Paket Wisata",
+        category:{ contains: "Paket Wisata", mode: "insensitive" },
       },
     })
     return Number(totalData)

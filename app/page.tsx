@@ -37,7 +37,7 @@ const HomePage = async () => {
               <div className="container text-center px-4 md:px-6 space-y-6">
                 <BlurFade delay={0.35} inView >
                   <BentoForHomePage />
-                  <Link href="/paket wisata langit biru.pdf" target="_blank" className="group inline-flex h-10 items-center justify-center rounded-md bg-[#EBEB15] text-[#164E8A] hover:bg-[#164E8A] hover:text-[#EBEB15] px-8 text-sm font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" prefetch={false}>
+                  <Link href="/paket wisata langit biru (1).pdf" target="_blank" className="group inline-flex h-10 items-center justify-center rounded-md bg-[#EBEB15] text-[#164E8A] hover:bg-[#164E8A] hover:text-[#EBEB15] px-8 text-sm font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" prefetch={false}>
                     Unduh Dokumen
                     <ArrowDownToLine className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-y-1" />
                   </Link>

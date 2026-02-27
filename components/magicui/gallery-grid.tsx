@@ -6,14 +6,14 @@ import { cn } from "@/lib/utils"
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-export function TwoTourPackage({ items }: { items: Array<{ id: string; src: string; alt: string; title: string; body:string}> }) {
+export function TwoTourPackage({ items }: { items: Array<{ id: string; src: string; alt: string; title: string; category: string; body:string}> }) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
     <div className="mb-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
         {items.map((item) => (
-          <Link href={`/tourpackage?page=1&query=${item.title.substring(0,14)}`} key={item.id}>
+          <Link href={`/tourpackage?page=1&query=${item.category.substring(24, item.category.length)}`} key={item.id}>
             <div
               key={item.id}
               className="group relative overflow-hidden rounded-xl bg-foreground/5 border border-foreground/10 h-96 cursor-pointer"
@@ -46,7 +46,7 @@ export function TwoTourPackage({ items }: { items: Array<{ id: string; src: stri
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-route-icon lucide-route"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg>
                 <h4 className="text-2xl md:text-5xl leading-tight font-bold mb-2">
-                  {item.title.substring(0, 14)}
+                  {item.category.substring(24, item.category.length)}
                 </h4>
               </div>
             </div>
