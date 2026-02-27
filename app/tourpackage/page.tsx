@@ -63,17 +63,10 @@ const AllTourPackagePage = async ({searchParams}:{searchParams?:{ query?: string
         </section>
       :
         <section className="w-full py-20 lg:py-28">
-        <div className="container items-center max-w-4xl px-4 md:px-6 space-y-6">
+        <div className="container items-center max-w-6xl px-4 md:px-6 space-y-6">
           <div className="text-justify justify-center leading-loose space-y-3 z-50">
-            <Link href={{pathname: '/articles'}} className="text-sm font-medium text-muted-foreground transition-all duration-200 ease-out hover:text-primary hover:translate-x-1">← Back to All Articles</Link>
+            <Link href={{pathname: '/tourpackage'}} className="text-sm font-medium text-muted-foreground transition-all duration-200 ease-out hover:text-primary hover:translate-x-1">← Back to All Tour Package</Link>
             <BlurFade delay={0.25} inView>
-              <div className="relative my-4 h-80 w-full">
-                <Image src={topic?.image ? `${topic.image}` : "/placeholder.svg"} alt={topic?.title ? topic.title : "Cover"} layout="fill" sizes="100vw" priority className="rounded-md object-cover" />
-              </div>
-              <div className="flex flex-row gap-4 items-center pb-2">
-                <p className="text-sm text-muted-foreground">{topic?.createdAt ? format(topic.createdAt, "dd/MM/yyyy") : ""}</p>
-                <Badge variant={"outline"} className="text-sm">{topic?.category}</Badge>
-              </div>
               <h3 className="pb-4 text-2xl font-bold tracking-tight capitalize">{topic?.title}</h3>
               <BodyPreview body={topic?.body ? topic.body : ""}/>
             </BlurFade>

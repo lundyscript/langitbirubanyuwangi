@@ -115,7 +115,7 @@ export function HeroSection() {
       </div>
 
       {/* Black Layer for Text Readability */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-[#164E8A]/50" />
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -164,7 +164,7 @@ export function HeroSection() {
               opacity: 0,
             }}
           >
-            <Link href="https://wa.me/6281321116569" className="group inline-flex h-12 items-center justify-center rounded-md bg-[#EBEB15] text-[#164E8A] hover:bg-[#164E8A] hover:text-[#EBEB15] px-8 text-sm font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" prefetch={false}>
+            <Link href="https://wa.me/6281321116569?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20paket%20wisata%20di%20Langit%20Biru%20Banyuwangi." target="_blank" className="group inline-flex h-12 items-center justify-center rounded-md bg-[#EBEB15] text-[#164E8A] hover:bg-[#164E8A] hover:text-[#EBEB15] px-8 text-sm font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" prefetch={false}>
               Plan Your Trip
               <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
@@ -183,15 +183,15 @@ export function HeroSection() {
             }}
           >
             <div>
-              <NumberTicker value={500} className="text-3xl font-bold text-[#EBEB15] mb-2" />
+              <NumberTicker value={20} className="text-3xl font-bold text-[#EBEB15] mb-2" />
               <p className="text-sm text-white/80">Destinations</p>
             </div>
             <div>
-              <NumberTicker value={50} className="text-3xl font-bold text-[#EBEB15] mb-2" />
+              <NumberTicker value={412} className="text-3xl font-bold text-[#EBEB15] mb-2" />
               <p className="text-sm text-white/80">Happy Travelers</p>
             </div>
             <div>
-              <NumberTicker value={20} className="text-3xl font-bold text-[#EBEB15] mb-2" />
+              <NumberTicker value={10} className="text-3xl font-bold text-[#EBEB15] mb-2" />
               <p className="text-sm text-white/80">Years of Experience</p>
             </div>
           </div>

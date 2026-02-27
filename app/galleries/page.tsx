@@ -39,7 +39,7 @@ const AllGalleriesPage = async ({searchParams}:{searchParams?:{ query?: string, 
         <section className="w-full py-20 lg:py-28">
           <div className="container px-4 md:px-6">
             <div className="lg:flex lg:flex-row gap-4 pb-10 justify-between">
-              <Heading title="Visualisasi Karya Kami." description="Jelajahi kumpulan momen dan proyek terbaik kami. Setiap gambar bercerita tentang dedikasi, kreativitas, dan standar kualitas yang kami jaga."/>
+              <Heading title="Galeri Kami." description="Jelajahi kumpulan momen dan proyek terbaik kami. Setiap gambar bercerita tentang dedikasi, kreativitas, dan standar kualitas yang kami jaga."/>
               <Separator orientation="horizontal" className="lg:hidden my-4"/>
               <div className="flex flex-row gap-2">
                 <SearchInput label="Cari Informasi"/>

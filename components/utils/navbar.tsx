@@ -1,30 +1,116 @@
 "use client"
 import Link from "next/link"
-import { Menu } from "lucide-react"
+import { ChevronDown, Menu } from "lucide-react"
 import { FaInstagram, FaRegEnvelope, FaWhatsapp } from "react-icons/fa"
 import { Button } from "@/components/ui/button"
 import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet"
 import ShinyButton from "@/components/magicui/shiny-button";
 import Image from "next/image"
+import { NavigationMenuLink, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuList, NavigationMenu } from "@/components/ui/navigation-menu"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { cn } from '@/lib/utils'
 import { usePathname } from "next/navigation"
+
+interface MenuItem {
+  label: string
+  href?: string
+  submenu?: SubMenuItem[]
+}
+interface SubMenuItem {
+  label: string
+  href: string
+  submenu?: SubMenuItem[]
+}
+
+const menuItems: MenuItem[] = [
+  {
+    label: 'Tentang Kami',
+    href: '/aboutus'
+  },
+  {
+    label: 'Paket Wisata',
+    href: '/tourpackage',
+    submenu: [
+      { label: '3 Hari 2 Malam', 
+        href: '#',
+        submenu: [
+          { label: 'Opsi A', href: '#' },
+          { label: 'Opsi B', href: '#' },
+          { label: 'Opsi C', href: '#' },
+        ]
+      },
+      { label: '2 Hari 2 Malam', 
+        href: '#',
+        submenu: [
+          { label: 'Opsi A', href: '#' },
+          { label: 'Opsi B', href: '#' },
+          { label: 'Opsi C', href: '#' },
+        ]
+      },
+      { label: 'One Day One Trip',
+        href: '#',
+        submenu: [
+          { label: 'Kawah Ijen', href: '#' },
+          { label: 'Taman Nasional Baluran', href: '#' },
+          { label: 'Kawah Wurung', href: '#' },
+          { label: 'Kawah Ijen - Taman Nasional Baluran', href: '#' },
+          { label: 'Djawatan - Taman Nasional Baluran', href: '#' },
+          { label: 'Kawah Ijen - Kawah Wurung', href: '#' },
+          { label: 'Kawah Wurung - Taman Nasional Baluran', href: '#' },
+          { label: 'Djawatan - Wedi Ireng - Pulau Merah', href: '#' },
+          { label: 'Djawatan - Taman Nasioanal Alas Purwo - Pulau Merah', href: '#' },
+        ]
+      },
+      { label: 'Open Trip',
+        href: '#',
+        submenu: [
+          { label: 'Kawah Ijen - Taman Nasional Baluran (Start Surabaya)', href: '#' },
+          { label: 'Kawah Ijen (Start Surabaya)', href: '#' },
+        ]
+      },
+    ],
+  },
+  {
+    label: 'Galeri Kami',
+    href: '/galleries'
+  },
+  {
+    label: 'Artikel',
+    href: '/articles'
+  },
+]
 
 export default function NavbarComponent() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hoveredMenu, setHoveredMenu] = useState<string | null>(null)
+  const [hoveredSubmenu, setHoveredSubmenu] = useState<string | null>(null)
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+
   useEffect(() => {
     const handleScroll = () => {
       // Check if page has scrolled more than 10 pixels
-      // ma, iso akses folderku? bu kuni njaluk tulung cekno nomor serdik mahasiswa ppg, njaluk tulung awakmu cekno nomor serdik ndek kolom F, aku tak ngecek data ndek pddiktine, suwun yo ma, nek wes mari kabari lewat sso ae
       setIsScrolled(window.scrollY > 50)
     }
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const handleMouseEnter = (menuLabel: string) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current)
+    }
+    setHoveredMenu(menuLabel)
+  }
+
+  const handleMouseLeave = () => {
+    hoverTimeoutRef.current = setTimeout(() => {
+      setHoveredMenu(null)
+    }, 150)
+  }
   return (
     <header className={cn("flex h-16 w-full shrink-0 items-center px-4 md:px-6 fixed z-50 text-[15px] tracking-tight transition-all duration-300 ",
       isScrolled
@@ -41,10 +127,106 @@ export default function NavbarComponent() {
             loading="lazy"
           />
         </Link>
-        <Link href="/aboutus" className={cn("font-medium p-2 rounded-md",isScrolled ? 'hover:bg-[#EBEB15] hover:text-slate-900' : 'hover:bg-[#164E8A] hover:text-[#EBEB15]')}>TENTANG KAMI</Link>
-        <Link href="/tourpackage" className={cn("font-medium p-2 rounded-md",isScrolled ? 'hover:bg-[#EBEB15] hover:text-slate-900' : 'hover:bg-[#164E8A] hover:text-[#EBEB15]')}>PAKET WISATA</Link>
-        <Link href="/galleries" className={cn("font-medium p-2 rounded-md",isScrolled ? 'hover:bg-[#EBEB15] hover:text-slate-900' : 'hover:bg-[#164E8A] hover:text-[#EBEB15]')}>GALERI</Link>
-        <Link href="/articles" className={cn("font-medium p-2 rounded-md",isScrolled ? 'hover:bg-[#EBEB15] hover:text-slate-900' : 'hover:bg-[#164E8A] hover:text-[#EBEB15]')}>ARTIKEL</Link>
+        {menuItems.map((item) => (
+            <div
+              key={item.label}
+              className="relative"
+              onMouseEnter={() => handleMouseEnter(item.label)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <a
+                href={item.href || '#'}
+                className={cn(
+                  'flex items-center gap-1 transition-colors hover:opacity-75 py-4'
+                )}
+              >
+                {item.label}
+                {item.submenu && (
+                  <ChevronDown
+                    className={cn(
+                      'w-4 h-4 transition-transform duration-300',
+                      hoveredMenu === item.label && 'rotate-180'
+                    )}
+                  />
+                )}
+              </a>
+
+              {item.submenu && hoveredMenu === item.label && (
+                <>
+                  {/* Invisible hover extender to prevent gap between menu and submenu */}
+                  <div className="absolute left-0 right-0 top-full h-3" />
+                  
+                  <div
+                    className={cn(
+                      'absolute left-0 top-full mt-0 rounded-md shadow-xl min-w-max border-t-4',
+                      isScrolled 
+                        ? 'bg-[#164E8A] text-[#EBEB15] border-blue-700' 
+                        : 'bg-[#EBEB15] text-[#164E8A] border-yellow-400'
+                    )}
+                  >
+                    <div className="px-2 py-2 flex flex-col gap-1">
+                      {item.submenu.map((subitem) => (
+                        <div
+                          key={subitem.label}
+                          className="relative group"
+                          onMouseEnter={() => setHoveredSubmenu(subitem.label)}
+                          onMouseLeave={() => setHoveredSubmenu(null)}
+                        >
+                          <a
+                            href={subitem.href}
+                            className={cn(
+                              'flex items-center gap-2 px-4 py-2 text-sm hover:rounded transition-all whitespace-nowrap',
+                              isScrolled 
+                                ? 'text-white hover:bg-[#EBEB15] hover:text-[#164E8A]' 
+                                : 'text-[#164E8A] hover:bg-[#164E8A] hover:text-[#EBEB15]'
+                            )}
+                          >
+                            {subitem.label}
+                            {subitem.submenu && (
+                              <ChevronDown
+                                className={cn(
+                                  'w-3 h-3 transition-transform duration-300',
+                                  hoveredSubmenu === subitem.label && '-rotate-90'
+                                )}
+                              />
+                            )}
+                          </a>
+
+                          {subitem.submenu && hoveredSubmenu === subitem.label && (
+                            <div
+                              className={cn(
+                                'absolute left-full top-0 ml-0 rounded-md shadow-xl min-w-max border-l-4',
+                                isScrolled 
+                                  ? 'bg-[#164E8A] text-[#EBEB15] border-blue-700' 
+                                  : 'bg-[#EBEB15] text-[#164E8A] border-yellow-400'
+                              )}
+                            >
+                              <div className="px-2 py-2 flex flex-col gap-1">
+                                {subitem.submenu.map((subsubitem) => (
+                                  <a
+                                    key={subsubitem.label}
+                                    href={subsubitem.href}
+                                    className={cn(
+                                      'px-4 py-2 text-sm hover:rounded transition-all whitespace-nowrap',
+                                      isScrolled 
+                                        ? 'text-white hover:bg-[#EBEB15] hover:text-[#164E8A]' 
+                                        : 'text-[#164E8A] hover:bg-[#164E8A] hover:text-[#EBEB15]'
+                                    )}
+                                  >
+                                    {subsubitem.label}
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+          ))}
       </div>
       <Sheet>
         <div className="lg:hidden w-full flex gap-4 justify-between">
@@ -104,7 +286,7 @@ export default function NavbarComponent() {
                 <TooltipProvider delayDuration={0}>
                   <Tooltip>
                     <TooltipTrigger>
-                      <Link href="https://wa.me/6281321116569" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
+                      <Link href="https://wa.me/6281321116569?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20paket%20wisata%20di%20Langit%20Biru%20Banyuwangi." target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
                         <FaWhatsapp size={20}/>
                       </Link>
                     </TooltipTrigger>
@@ -131,7 +313,7 @@ export default function NavbarComponent() {
         </SheetContent>
       </Sheet>
       <div className="ml-auto hidden lg:flex space-x-0 items-center">
-        <p className="pr-2">Temukan Kami :</p>
+        <p className="pr-2 text-sm leading-tight font-medium">Temukan Kami :</p>
         <TooltipProvider delayDuration={0}>
           <Tooltip>
             <TooltipTrigger>
@@ -147,7 +329,7 @@ export default function NavbarComponent() {
         <TooltipProvider delayDuration={0}>
           <Tooltip>
             <TooltipTrigger>
-              <Link href="https://wa.me/6281321116569" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
+              <Link href="https://wa.me/6281321116569?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20paket%20wisata%20di%20Langit%20Biru%20Banyuwangi." target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
                 <FaWhatsapp size={20}/>
               </Link>
             </TooltipTrigger>

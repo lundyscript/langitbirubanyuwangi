@@ -1,5 +1,5 @@
 import { getAllGalleries, getAllPosts, getAllTour, getFourPosts, getSixGalleries } from "@/data/posts"
-import { ArticlesGrid, GalleryGrid, TourPackageGrid, TwoTourPackage } from "../magicui/gallery-grid"
+import { ArticlesGrid, CarouselGallery, GalleryGrid, TourPackageGrid, TwoTourPackage } from "../magicui/gallery-grid"
 
 export const BentoForHomePage = async () => {
     const tourpackage = await getFourPosts()
@@ -52,7 +52,7 @@ export const BentoForGalleryPage = async ({query, currentPage}:{query: string, c
 export const GalleryForHomePage = async () => {
   const galleries = await getSixGalleries()
   return (
-    <GalleryGrid items={galleries.map((gallery) => ({
+    <CarouselGallery items={galleries.map((gallery) => ({
         id: gallery.id,
         src: gallery.image ? `${gallery.image}` : "/placeholder.svg",
         alt: gallery.title,

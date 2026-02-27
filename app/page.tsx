@@ -60,7 +60,7 @@ const HomePage = async () => {
             <div className="container flex flex-col items-center px-4 md:px-6 text-center space-y-10">
               <BlurFade delay={0.25} inView>
                 <h1 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl">
-                  Visualisasi Karya Kami.
+                  Galeri Kami.
                 </h1>
                 <p className="max-w-4xl text-muted-foreground md:text-sm/relaxed lg:text-md/relaxed xl:text-lg/relaxed">
                   Jelajahi kumpulan momen dan proyek terbaik kami. Setiap gambar bercerita tentang dedikasi, kreativitas, dan standar kualitas yang kami jaga.
