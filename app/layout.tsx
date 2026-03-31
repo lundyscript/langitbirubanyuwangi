@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: "Jelajahi keindahan Kawah Ijen, Baluran, dan destinasi hits lainnya bersama Langit Biru Banyuwangi. Paket tour lengkap, harga jujur, dan pelayanan lokal terbaik. Pesan sekarang!",
     url: "https://www.langitbirubanyuwangi.com/",
     siteName: "Langit Biru Banyuwangi",
-    images: [{ url: "/hero1.jpg" }],
+    images: [{ url: "https://www.langitbirubanyuwangi.com/hero1.jpg" }],
     type: "website"
   }
 };

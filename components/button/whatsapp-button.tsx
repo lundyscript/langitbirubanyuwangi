@@ -3,6 +3,7 @@
 import { MessageCircle } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 interface WhatsAppButtonProps {
   phoneNumber?: string;
@@ -35,7 +36,7 @@ export function WhatsAppButton({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <MessageCircle size={24} />
+        <FaWhatsapp size={28}/>
       </Link>
     </div>
   );

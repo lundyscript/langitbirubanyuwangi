@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 import { ArrowDownToLine, ChevronRightIcon } from "lucide-react"
 import { getAllProfiles } from "@/data/profiles"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { FaInstagram, FaWhatsapp } from "react-icons/fa"
+import { FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa"
 import { BentoForHomePage, GalleryForHomePage } from "@/components/card"
 import { HeroSection } from "@/components/magicui/hero-section"
 import WhyChooseUs from "@/components/magicui/why-choose-us"
@@ -37,7 +37,7 @@ const HomePage = async () => {
               <div className="container text-center px-4 md:px-6 space-y-6">
                 <BlurFade delay={0.35} inView >
                   <BentoForHomePage />
-                  <Link href="/paket wisata langit biru (1).pdf" target="_blank" className="group inline-flex h-10 items-center justify-center rounded-md bg-[#EBEB15] text-[#164E8A] hover:bg-[#164E8A] hover:text-[#EBEB15] px-8 text-sm font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" prefetch={false}>
+                  <Link href="/paket wisata langit biru (2).pdf" target="_blank" className="group inline-flex h-10 items-center justify-center rounded-md bg-[#EBEB15] text-[#164E8A] hover:bg-[#164E8A] hover:text-[#EBEB15] px-8 text-sm font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" prefetch={false}>
                     Unduh Dokumen
                     <ArrowDownToLine className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-y-1" />
                   </Link>
@@ -106,6 +106,18 @@ const HomePage = async () => {
                       <div>
                         <h3 className="text-lg font-semibold">Media Sosial</h3>
                         <div className="flex space-x-2">
+                          <TooltipProvider delayDuration={0}>
+                            <Tooltip>
+                              <TooltipTrigger>
+                                <Link href="https://www.tiktok.com/@langitbiru.banyuwangi" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
+                                  <FaTiktok size={18}/>
+                                </Link>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Tiktok</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
                           <TooltipProvider delayDuration={0}>
                             <Tooltip>
                               <TooltipTrigger>

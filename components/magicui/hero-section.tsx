@@ -173,28 +173,6 @@ export function HeroSection() {
               Browse Destinations
             </Link>
           </div>
-
-          {/* Stats or Trust Indicators - Animated */}
-          <div
-            className="mt-14 pt-10 border-t border-white/30 flex flex-col sm:flex-row gap-8 sm:gap-10 transition-all duration-700"
-            style={{
-              animation: `fadeInUp 0.8s ease-out 0.6s forwards`,
-              opacity: 0,
-            }}
-          >
-            <div>
-              <NumberTicker value={20} className="text-3xl font-bold text-[#EBEB15] mb-2" />
-              <p className="text-sm text-white/80">Destinations</p>
-            </div>
-            <div>
-              <NumberTicker value={412} className="text-3xl font-bold text-[#EBEB15] mb-2" />
-              <p className="text-sm text-white/80">Happy Travelers</p>
-            </div>
-            <div>
-              <NumberTicker value={10} className="text-3xl font-bold text-[#EBEB15] mb-2" />
-              <p className="text-sm text-white/80">Years of Experience</p>
-            </div>
-          </div>
         </div>
       </div>
 

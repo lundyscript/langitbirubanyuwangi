@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
 import { ChevronDown, Menu } from "lucide-react"
-import { FaInstagram, FaRegEnvelope, FaWhatsapp } from "react-icons/fa"
+import { FaInstagram, FaRegEnvelope, FaTiktok, FaWhatsapp } from "react-icons/fa"
 import { Button } from "@/components/ui/button"
 import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet"
 import ShinyButton from "@/components/magicui/shiny-button";
@@ -115,7 +115,7 @@ export default function NavbarComponent() {
     <header className={cn("flex h-16 w-full shrink-0 items-center px-4 md:px-6 fixed z-50 text-[15px] tracking-tight transition-all duration-300 ",
       isScrolled
           ? 'bg-[#164E8A] shadow-md text-white'
-          : isHomePage ? 'backdrop-blur-sm bg-background/20 text-white' : 'bg-[#EBEB15] shadow-md text-[#164E8A]'
+          : isHomePage ? 'backdrop-blur-sm bg-background/20 text-white' : 'bg-[#164E8A] shadow-md text-white'
     )}>
       <div className="mr-6 hidden lg:flex space-x-6 items-center">
         <Link href="/" className="inline-flex items-center gap-2">
@@ -274,6 +274,18 @@ export default function NavbarComponent() {
                 <TooltipProvider delayDuration={0}>
                   <Tooltip>
                     <TooltipTrigger>
+                      <Link href="https://www.tiktok.com/@langitbiru.banyuwangi" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
+                        <FaTiktok size={18}/>
+                      </Link>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Tiktok</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+                <TooltipProvider delayDuration={0}>
+                  <Tooltip>
+                    <TooltipTrigger>
                       <Link href="https://www.instagram.com/langitbiru.banyuwangi" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
                         <FaInstagram size={20}/>
                       </Link>
@@ -314,6 +326,18 @@ export default function NavbarComponent() {
       </Sheet>
       <div className="ml-auto hidden lg:flex space-x-0 items-center">
         <p className="pr-2 text-sm leading-tight font-medium">Temukan Kami :</p>
+        <TooltipProvider delayDuration={0}>
+          <Tooltip>
+            <TooltipTrigger>
+              <Link href="https://www.tiktok.com/@langitbiru.banyuwangi" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
+                <FaTiktok size={18}/>
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Tiktok</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
         <TooltipProvider delayDuration={0}>
           <Tooltip>
             <TooltipTrigger>
