@@ -245,14 +245,14 @@ export default function NavbarComponent() {
           </SheetTrigger>
           <Link href="/tourpackage"><ShinyButton text="PAKET WISATA"/></Link>
         </div>
-        <SheetContent side="left">
+        <SheetContent side="left" className="bg-[#164E8A] text-white border-0">
           <div className="flex flex-col h-full justify-between">
             <div className="grid gap-6 py-8">
               <div className="inline-flex gap-4">
                 <Image
                   src="/langit biru banyuwangi.png"
-                  width={60}
-                  height={44}
+                  width={80}
+                  height={40}
                   alt="Logo"
                   loading="lazy"
                 />

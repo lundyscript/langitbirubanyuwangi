@@ -27,6 +27,9 @@ export const getAllPostsForAdmin = async (query: string, currentPage: number) =>
       where:{
         OR:[
           {
+            category:{ contains: query, mode: "insensitive" },
+          },
+          {
             title:{ contains: query, mode: "insensitive" },
           },
           {
