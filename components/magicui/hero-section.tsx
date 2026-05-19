@@ -164,7 +164,7 @@ export function HeroSection() {
               opacity: 0,
             }}
           >
-            <Link href="https://wa.me/6281321116569?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20paket%20wisata%20di%20Langit%20Biru%20Banyuwangi." target="_blank" className="group inline-flex h-12 items-center justify-center rounded-md bg-[#EBEB15] text-[#164E8A] hover:bg-[#164E8A] hover:text-[#EBEB15] px-8 text-sm font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" prefetch={false}>
+            <Link href="https://wa.me/6281321116965?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20paket%20wisata%20di%20Langit%20Biru%20Banyuwangi." target="_blank" className="group inline-flex h-12 items-center justify-center rounded-md bg-[#EBEB15] text-[#164E8A] hover:bg-[#164E8A] hover:text-[#EBEB15] px-8 text-sm font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" prefetch={false}>
               Plan Your Trip
               <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>

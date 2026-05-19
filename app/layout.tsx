@@ -37,7 +37,7 @@ export default async function RootLayout({children}: Readonly<{children: React.R
             <Toaster/>
             {children}
             <WhatsAppButton 
-              phoneNumber="6281321116569"
+              phoneNumber="6281321116965"
               message="Halo, saya ingin bertanya tentang paket wisata di Langit Biru Banyuwangi."
               tooltipText="Chat dengan WhatsApp"
             />
