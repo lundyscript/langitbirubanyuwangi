@@ -97,7 +97,7 @@ const HomePage = async () => {
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold">Telepon</h3>
-                        <p className="text-muted-foreground">0813 2111 6569</p>
+                        <p className="text-muted-foreground">0813 2111 6965</p>
                       </div>
                       <div>
                         <h3 className="text-lg font-semibold">Email</h3>
@@ -133,7 +133,7 @@ const HomePage = async () => {
                           <TooltipProvider delayDuration={0}>
                             <Tooltip>
                               <TooltipTrigger>
-                                <Link href="https://wa.me/6281321116569" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
+                                <Link href="https://wa.me/6281321116965" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
                                   <FaWhatsapp size={20}/>
                                 </Link>
                               </TooltipTrigger>
