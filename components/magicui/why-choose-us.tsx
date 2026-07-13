@@ -1,6 +1,7 @@
 'use client'
 
 import { MapPin, Heart, DollarSign, Users } from 'lucide-react'
+import Image from 'next/image'
 
 const reasons = [
   {
@@ -29,13 +30,17 @@ export default function WhyChooseUs() {
   return (
     <section className="relative py-16 md:py-24 overflow-hidden">
       {/* Background Image with Overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            'url("https://images.unsplash.com/photo-1509233725247-49e657c54213?q=80&w=1349&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=1200&q=80")',
-        }}
-      />
+      <div className="absolute inset-0">
+        <Image
+          src="/hero1.jpg"
+          alt="Why Choose Us Background"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+          quality={85}
+        />
+      </div>
       <div className="absolute inset-0 bg-black opacity-50" />
 
       {/* Content */}

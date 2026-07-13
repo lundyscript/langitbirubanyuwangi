@@ -17,18 +17,22 @@ import Link from 'next/link'
 import { ArrowDownToLine } from 'lucide-react'
 import { SearchInput } from '@/components/input/search'
 
+export const revalidate = 60
+
 const AllTourPackagePage = async ({searchParams}:{searchParams?:{ query?: string, page?: string, read?: string }}) => {
   const query = searchParams?.query || ""
   const currentPage = Number(searchParams?.page) || 1
-  const totalPages = await getTourPages(query)
-  const data = await getTourData(query, currentPage)
-  const totalData = await getTourAllData()
-  const topic = await getPostById(searchParams?.read)
+  const [totalPages, data, totalData, topic] = await Promise.all([
+    getTourPages(query),
+    getTourData(query, currentPage),
+    getTourAllData(),
+    getPostById(searchParams?.read)
+  ])
   return (
     <>
       <NavbarComponent/>
       <AnimatedGridPattern
-        numSquares={50}
+        numSquares={15}
         maxOpacity={0.1}
         duration={1}
         repeatDelay={1}

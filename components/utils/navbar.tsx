@@ -7,7 +7,7 @@ import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet"
 import ShinyButton from "@/components/magicui/shiny-button";
 import Image from "next/image"
 import { NavigationMenuLink, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuList, NavigationMenu } from "@/components/ui/navigation-menu"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { useState, useEffect, useRef } from "react"
 import { cn } from '@/lib/utils'
 import { usePathname } from "next/navigation"
@@ -271,54 +271,46 @@ export default function NavbarComponent() {
             <div>
               <p className="py-4">Temukan Kami :</p>
               <div className="flex items-center justify-between">
-                <TooltipProvider delayDuration={0}>
-                  <Tooltip>
-                    <TooltipTrigger>
-                      <Link href="https://www.tiktok.com/@langitbiru.banyuwangi" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
-                        <FaTiktok size={18}/>
-                      </Link>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Tiktok</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-                <TooltipProvider delayDuration={0}>
-                  <Tooltip>
-                    <TooltipTrigger>
-                      <Link href="https://www.instagram.com/langitbiru.banyuwangi" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
-                        <FaInstagram size={20}/>
-                      </Link>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Instagram</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-                <TooltipProvider delayDuration={0}>
-                  <Tooltip>
-                    <TooltipTrigger>
-                      <Link href="https://wa.me/6281321116965?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20paket%20wisata%20di%20Langit%20Biru%20Banyuwangi." target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
-                        <FaWhatsapp size={20}/>
-                      </Link>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Whatsapp</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-                <TooltipProvider delayDuration={0}>
-                  <Tooltip>
-                    <TooltipTrigger>
-                      <Link href="https://mail.google.com/mail/?view=cm&fs=1&to=langitbirubanyuwangi@gmail.com" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
-                        <FaRegEnvelope size={18}/>
-                      </Link>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>Email</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <Link href="https://www.tiktok.com/@langitbiru.banyuwangi" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
+                      <FaTiktok size={18}/>
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Tiktok</p>
+                  </TooltipContent>
+                </Tooltip>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <Link href="https://www.instagram.com/langitbiru.banyuwangi" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
+                      <FaInstagram size={20}/>
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Instagram</p>
+                  </TooltipContent>
+                </Tooltip>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <Link href="https://wa.me/6281321116965?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20paket%20wisata%20di%20Langit%20Biru%20Banyuwangi." target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
+                      <FaWhatsapp size={20}/>
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Whatsapp</p>
+                  </TooltipContent>
+                </Tooltip>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <Link href="https://mail.google.com/mail/?view=cm&fs=1&to=langitbirubanyuwangi@gmail.com" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
+                      <FaRegEnvelope size={18}/>
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Email</p>
+                  </TooltipContent>
+                </Tooltip>
               </div>
             </div>
           </div>
@@ -326,54 +318,46 @@ export default function NavbarComponent() {
       </Sheet>
       <div className="ml-auto hidden lg:flex space-x-0 items-center">
         <p className="pr-2 text-sm leading-tight font-medium">Temukan Kami :</p>
-        <TooltipProvider delayDuration={0}>
-          <Tooltip>
-            <TooltipTrigger>
-              <Link href="https://www.tiktok.com/@langitbiru.banyuwangi" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
-                <FaTiktok size={18}/>
-              </Link>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Tiktok</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-        <TooltipProvider delayDuration={0}>
-          <Tooltip>
-            <TooltipTrigger>
-              <Link href="https://www.instagram.com/langitbiru.banyuwangi" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
-                <FaInstagram size={20}/>
-              </Link>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Instagram</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-        <TooltipProvider delayDuration={0}>
-          <Tooltip>
-            <TooltipTrigger>
-              <Link href="https://wa.me/6281321116965?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20paket%20wisata%20di%20Langit%20Biru%20Banyuwangi." target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
-                <FaWhatsapp size={20}/>
-              </Link>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Whatsapp</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-        <TooltipProvider delayDuration={0}>
-          <Tooltip>
-            <TooltipTrigger>
-              <Link href="https://mail.google.com/mail/?view=cm&fs=1&to=langitbirubanyuwangi@gmail.com" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
-                <FaRegEnvelope size={18}/>
-              </Link>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Email</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger>
+            <Link href="https://www.tiktok.com/@langitbiru.banyuwangi" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
+              <FaTiktok size={18}/>
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Tiktok</p>
+          </TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger>
+            <Link href="https://www.instagram.com/langitbiru.banyuwangi" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
+              <FaInstagram size={20}/>
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Instagram</p>
+          </TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger>
+            <Link href="https://wa.me/6281321116965?text=Halo%2C%20saya%20ingin%20bertanya%20tentang%20paket%20wisata%20di%20Langit%20Biru%20Banyuwangi." target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
+              <FaWhatsapp size={20}/>
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Whatsapp</p>
+          </TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger>
+            <Link href="https://mail.google.com/mail/?view=cm&fs=1&to=langitbirubanyuwangi@gmail.com" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
+              <FaRegEnvelope size={18}/>
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Email</p>
+          </TooltipContent>
+        </Tooltip>
       </div>
     </header>
   )

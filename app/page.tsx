@@ -5,12 +5,14 @@ import AnimatedGridPattern from "@/components/magicui/animated-grid-pattern"
 import { cn } from "@/lib/utils"
 import { ArrowDownToLine, ChevronRightIcon } from "lucide-react"
 import { getAllProfiles } from "@/data/profiles"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa"
 import { BentoForHomePage, GalleryForHomePage } from "@/components/card"
 import { HeroSection } from "@/components/magicui/hero-section"
 import WhyChooseUs from "@/components/magicui/why-choose-us"
 import { HyperText } from "@/components/ui/hyper-text"
+
+export const revalidate = 60
 
 const HomePage = async () => {
   const sejarah = await getAllProfiles("tentang kami", 1)
@@ -46,7 +48,7 @@ const HomePage = async () => {
             </div>
           </section>
           <AnimatedGridPattern
-            numSquares={50}
+            numSquares={15}
             maxOpacity={0.1}
             duration={1}
             repeatDelay={1}
@@ -106,42 +108,36 @@ const HomePage = async () => {
                       <div>
                         <h3 className="text-lg font-semibold">Media Sosial</h3>
                         <div className="flex space-x-2">
-                          <TooltipProvider delayDuration={0}>
-                            <Tooltip>
-                              <TooltipTrigger>
-                                <Link href="https://www.tiktok.com/@langitbiru.banyuwangi" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
-                                  <FaTiktok size={18}/>
-                                </Link>
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p>Tiktok</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
-                          <TooltipProvider delayDuration={0}>
-                            <Tooltip>
-                              <TooltipTrigger>
-                                <Link href="https://www.instagram.com/langitbiru.banyuwangi" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
-                                  <FaInstagram size={20}/>
-                                </Link>
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p>Instagram</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
-                          <TooltipProvider delayDuration={0}>
-                            <Tooltip>
-                              <TooltipTrigger>
-                                <Link href="https://wa.me/6281321116965" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
-                                  <FaWhatsapp size={20}/>
-                                </Link>
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p>Whatsapp</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <Link href="https://www.tiktok.com/@langitbiru.banyuwangi" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
+                                <FaTiktok size={18}/>
+                              </Link>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>Tiktok</p>
+                            </TooltipContent>
+                          </Tooltip>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <Link href="https://www.instagram.com/langitbiru.banyuwangi" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
+                                <FaInstagram size={20}/>
+                              </Link>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>Instagram</p>
+                            </TooltipContent>
+                          </Tooltip>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <Link href="https://wa.me/6281321116965" target="_blank" className="h-10 w-10 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
+                                <FaWhatsapp size={20}/>
+                              </Link>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>Whatsapp</p>
+                            </TooltipContent>
+                          </Tooltip>
                         </div>
                       </div>
                     </div>

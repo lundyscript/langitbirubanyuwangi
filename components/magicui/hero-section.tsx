@@ -5,6 +5,7 @@ import { ArrowRight, Plane, MapPin, ChevronLeft, ChevronRight } from 'lucide-rea
 import { useState, useEffect } from 'react'
 import { NumberTicker } from '../ui/number-ticker'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface Slide {
   id: number
@@ -97,7 +98,7 @@ export function HeroSection() {
       <div className="absolute inset-0 overflow-hidden">
         {/* Slides Container with Horizontal Scroll Animation */}
         <div
-          className="absolute inset-0 flex transition-transform duration-800 ease-in-out"
+          className="absolute inset-0 flex h-full transition-transform duration-800 ease-in-out"
           style={{
             transform: `translateX(-${currentSlide * 100}%)`,
           }}
@@ -105,11 +106,18 @@ export function HeroSection() {
           {slides.map((s) => (
             <div
               key={s.id}
-              className="relative min-w-full h-full bg-cover bg-center bg-no-repeat flex-shrink-0"
-              style={{
-                backgroundImage: `url(${s.image})`,
-              }}
-            />
+              className="relative min-w-full h-full w-screen flex-shrink-0"
+            >
+<Image
+                src={s.image}
+                alt={s.eyebrow}
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover"
+                quality={85}
+              />
+            </div>
           ))}
         </div>
       </div>

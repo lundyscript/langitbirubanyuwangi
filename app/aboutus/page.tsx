@@ -7,6 +7,8 @@ import { getAllProfiles } from '@/data/profiles'
 import { BorderBeam } from '@/components/magicui/border-beam'
 import { BodyPreview } from '@/components/utils/body'
 
+export const revalidate = 60
+
 const ProfilePage = async () => {
   const aboutus = await getAllProfiles("tentang kami", 1)
   return (
@@ -36,7 +38,7 @@ const ProfilePage = async () => {
         </div>
       </section>
       <AnimatedGridPattern
-        numSquares={50}
+        numSquares={15}
         maxOpacity={0.1}
         duration={1}
         repeatDelay={1}

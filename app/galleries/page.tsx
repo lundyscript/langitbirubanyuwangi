@@ -15,18 +15,22 @@ import { format } from 'date-fns'
 import Image from 'next/image'
 import Link from 'next/link'
 
+export const revalidate = 60
+
 const AllGalleriesPage = async ({searchParams}:{searchParams?:{ query?: string, page?: string, read?: string }}) => {
   const query = searchParams?.query || ""
   const currentPage = Number(searchParams?.page) || 1
-  const totalPages = await getGalleriesPages(query)
-  const data = await getGalleriesData(query, currentPage)
-  const totalData = await getGalleriesAllData()
-  const topic = await getPostById(searchParams?.read)
+  const [totalPages, data, totalData, topic] = await Promise.all([
+    getGalleriesPages(query),
+    getGalleriesData(query, currentPage),
+    getGalleriesAllData(),
+    getPostById(searchParams?.read)
+  ])
   return (
     <>
       <NavbarComponent/>
       <AnimatedGridPattern
-        numSquares={50}
+        numSquares={15}
         maxOpacity={0.1}
         duration={1}
         repeatDelay={1}

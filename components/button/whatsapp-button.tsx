@@ -1,9 +1,8 @@
 'use client';
 
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, Phone } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
-import { FaWhatsapp } from 'react-icons/fa';
 
 interface WhatsAppButtonProps {
   phoneNumber?: string;
@@ -12,7 +11,7 @@ interface WhatsAppButtonProps {
 }
 
 export function WhatsAppButton({
-  phoneNumber = '6281321116569', // Ganti dengan nomor WhatsApp Anda
+  phoneNumber = '6281321116569',
   message = 'Halo, saya ingin bertanya tentang paket wisata di Langit Biru Banyuwangi.',
   tooltipText = 'Chat dengan WhatsApp',
 }: WhatsAppButtonProps) {
@@ -36,7 +35,7 @@ export function WhatsAppButton({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <FaWhatsapp size={28}/>
+        <MessageCircle size={28}/>
       </Link>
     </div>
   );
