@@ -62,7 +62,6 @@
     "tailwindcss-animate": "^1.0.7",
     "use-debounce": "^10.0.0",
     "uuid": "^9.0.1",
-    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.1/xlsx-0.20.1.tgz",
     "zod": "^3.22.4",
     "zod-form-data": "^2.0.2"
   },

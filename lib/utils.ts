@@ -5,15 +5,6 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export const formatDate = (dateStr: string) => {
-  const date = new Date(dateStr)
-  const formatter = new Intl.DateTimeFormat("id-ID",{
-    dateStyle:"medium",
-    timeStyle:"medium"
-  })
-  return formatter.format(date)
-}
-
 export const generatePagination = (currentPage: number, totalPages: number) => {
   if(totalPages<=7){
     return Array.from({length: totalPages}, (_, i) => i + 1)

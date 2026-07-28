@@ -1,6 +1,5 @@
 "use client"
 import * as React from "react"
-import * as XLSX from "xlsx"
 import Link from "next/link"
 import { useTheme } from "next-themes"
 import { useSearchParams } from "next/navigation"
@@ -14,7 +13,7 @@ import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
 import { DeleteModal } from "@/components/modal/delete"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { Sun, Moon, Laptop, UserRound, LogOut, Settings, ShieldQuestion, ServerCog, MonitorSmartphone, Plus, ArrowDownToLine, Pencil, Loader } from "lucide-react"
+import { Sun, Moon, UserRound, LogOut, Settings, ShieldQuestion, Plus, Pencil, Loader } from "lucide-react"
 import { FcGoogle } from "react-icons/fc"
 import { FaGithub } from "react-icons/fa"
 import { useEffect, useState } from "react"
@@ -50,30 +49,6 @@ export const CreateButton = ({href, label}: {href: string, label: string}) => {
       </Tooltip>
     </TooltipProvider>
   );
-}
-
-export const DownloadButton = ({data, label}: {data: any, label: string}) => {
-  const filename = label + ".xlsx"
-  const onClick = () => {
-    const jsonstrg = JSON.stringify(data)
-    const jsondata = JSON.parse(jsonstrg)
-    const worksheet = XLSX.utils.json_to_sheet(jsondata)
-    const workbook = XLSX.utils.book_new()
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1")
-    XLSX.writeFile(workbook, filename, { compression: true })
-  }
-  return (
-    <TooltipProvider delayDuration={0}>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Button onClick={onClick} variant={"secondary"} size={"sm"} className="border">
-            <ArrowDownToLine size={17}/>
-          </Button>
-        </TooltipTrigger>
-        <TooltipContent>Unduh data {label}.</TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
-  )
 }
 
 export const SaveButton = () => {
@@ -177,35 +152,6 @@ export const UserButton = () => {
         <LogoutButton>
           <DropdownMenuItem className="gap-2 text-red-700 focus:bg-destructive/20 focus:text-red-700"><LogOut size={17}/>Logout</DropdownMenuItem>
         </LogoutButton>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  )
-}
-
-export function ModeToggle() {
-  const { setTheme } = useTheme()
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="h-10 w-10 focus-visible:ring-offset-0 focus-visible:ring-0">
-          <Sun size={22} className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon size={21} className="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")} className="gap-3">
-          <Sun size={17}/>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")} className="gap-3">
-          <Moon size={17}/>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")} className="gap-3">
-          <Laptop size={17}/>
-          System
-        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )

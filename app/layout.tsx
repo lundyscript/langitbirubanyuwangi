@@ -25,18 +25,18 @@ export const metadata: Metadata = {
 export default async function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
   const session = await auth()
   return (
-    <SessionProvider session={session}>
-      <html lang="en" suppressHydrationWarning={true} className={GeistSans.className}>
-        <head>
-          <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <link rel="icon" href="/iconlbb.png" sizes="any" />
-          <link rel="apple-touch-icon" href="/apple-touch-icon.png" type="image/<generated>" sizes="<generated>" />
-          <link rel="preload" as="image" href="/hero1.jpg" />
-          <link rel="preload" as="image" href="/hero2.jpg" />
-          <link rel="preload" as="image" href="/hero3.jpg" />
-        </head>
-        <body>
+    <html lang="en" suppressHydrationWarning={true} className={GeistSans.className}>
+      <head>
+        <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="icon" href="/iconlbb.png" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" type="image/<generated>" sizes="<generated>" />
+        <link rel="preload" as="image" href="/hero1.jpg" />
+        <link rel="preload" as="image" href="/hero2.jpg" />
+        <link rel="preload" as="image" href="/hero3.jpg" />
+      </head>
+      <body>
+        <SessionProvider session={session}>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
             <TooltipProvider delayDuration={0}>
               <Toaster/>
@@ -48,8 +48,8 @@ export default async function RootLayout({children}: Readonly<{children: React.R
               />
             </TooltipProvider>
           </ThemeProvider>
-        </body>
-      </html>
-    </SessionProvider>
+        </SessionProvider>
+      </body>
+    </html>
   );
 }
