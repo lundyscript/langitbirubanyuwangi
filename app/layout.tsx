@@ -35,14 +35,9 @@ export default async function RootLayout({children}: Readonly<{children: React.R
         <link rel="preload" as="image" href="/hero1.jpg" />
         <link rel="preload" as="image" href="/hero2.jpg" />
         <link rel="preload" as="image" href="/hero3.jpg" />
-        {/* <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){...})(window,document,'script','dataLayer','GTM-KVWQ2L4N');`,
-          }}
-        /> */}
-        <GoogleTagManager gtmId="GTM-KVWQ2L4N" />
       </head>
       <body>
+        <GoogleTagManager gtmId="GTM-KVWQ2L4N" />
         <SessionProvider session={session}>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
             <TooltipProvider delayDuration={0}>
