@@ -5,8 +5,9 @@ import { SessionProvider } from "next-auth/react"
 import { auth } from "@/auth"
 import { Toaster } from "@/components/ui/sonner"
 import { TooltipProvider } from "@/components/ui/tooltip"
-import "./globals.css";
-import { WhatsAppButton } from "@/components/button/whatsapp-button";
+import "./globals.css"
+import { WhatsAppButton } from "@/components/button/whatsapp-button"
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "Langit Biru Banyuwangi - Paket Wisata Banyuwangi Murah & Lengkap",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
   const session = await auth()
   return (
-    <html lang="en" suppressHydrationWarning={true} className={GeistSans.className}>
+    <html lang="id" suppressHydrationWarning={true} className={GeistSans.className}>
       <head>
         <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -34,6 +35,12 @@ export default async function RootLayout({children}: Readonly<{children: React.R
         <link rel="preload" as="image" href="/hero1.jpg" />
         <link rel="preload" as="image" href="/hero2.jpg" />
         <link rel="preload" as="image" href="/hero3.jpg" />
+        {/* <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){...})(window,document,'script','dataLayer','GTM-KVWQ2L4N');`,
+          }}
+        /> */}
+        <GoogleTagManager gtmId="GTM-KVWQ2L4N" />
       </head>
       <body>
         <SessionProvider session={session}>
